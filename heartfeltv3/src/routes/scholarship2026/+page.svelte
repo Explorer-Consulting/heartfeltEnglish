@@ -19,6 +19,9 @@
     const facebookUrl = "https://www.facebook.com/profile.php?id=100089924056817";
     const facebookPageUrl = "https://www.facebook.com/heartfelt.english";
     const instagramUrl = "https://www.instagram.com/heartfelt.english";
+    const donateUrl = "https://whydonate.com/fundraising/miles-for-the-heart-journey";
+    const mfthVideoSrc = "/videos/Juan.mp4";
+
     const facebookEmbedUrl =
         "https://www.facebook.com/plugins/page.php?href=" +
         encodeURIComponent(facebookPageUrl) +
@@ -72,6 +75,13 @@
                 "Use the programme links and embedded feeds below. For now, they point to the main Heartfelt English Facebook and Instagram accounts.",
             facebookButton: "Facebook Programme Page",
             instagramButton: "Instagram Programme Page",
+            // MFTH campaign
+            mfthCampaignTitle: "Miles for the Heart's Journey — Juan's Challenge",
+            mfthCampaignBody:
+                "Juan, a primary school teacher working in Hungary, has generously volunteered to help us raise additional funds needed for the scholarship. As part of this effort, he will undertake an extraordinary challenge: running from Budapest to Esztergom — a distance of 80 kilometres over one weekend (13–14 June).",
+            mfthDonateButton: "Support Juan's run — Donate now",
+            mfthVideoLabel: "Watch Juan's campaign video",
+            mfthCardDonate: "Donate",
         },
         hu: {
             title: "Ösztöndíjprogram 2026",
@@ -93,6 +103,13 @@
                 "Használd az alábbi programlinkeket és beágyazott felületeket. Jelenleg ezek a Heartfelt English hivatalos Facebook- és Instagram-oldalára mutatnak.",
             facebookButton: "Facebook programoldal",
             instagramButton: "Instagram programoldal",
+            // MFTH campaign
+            mfthCampaignTitle: "Miles for the Heart's Journey — Juan kihívása",
+            mfthCampaignBody:
+                "Juan, egy Magyarországon dolgozó általános iskolai tanár, önként vállalta, hogy segít az ösztöndíjhoz szükséges további források összegyűjtésében. Ennek keretében rendkívüli kihívást vállal: egy hétvége alatt (június 13–14.) Budapestről Esztergomba fut — ez 80 kilométeres távolság.",
+            mfthDonateButton: "Támogasd Juan futását — Adományozz most",
+            mfthVideoLabel: "Nézd meg Juan kampányvideóját",
+            mfthCardDonate: "Adományozz",
         },
     } satisfies Record<Language, Record<string, string>>;
 
@@ -288,7 +305,7 @@
             </div>
 
             <div class="timeline-right" style={`--sticky-top: ${NAVBAR_OFFSET}`}>
-                <!-- MFTH Banner -->
+                <!-- MFTH Banner card — updated with donate link and video -->
                 <div class="mfth-banner-card">
                     <img
                         src="/assets/mfth.jpeg"
@@ -299,6 +316,27 @@
                         <p class="mfth-event-label normal">{copy[lang].fundraisingLabel}</p>
                         <p class="mfth-event-name">{fundraisingEvents[1].title[lang]}</p>
                         <p class="normal mfth-event-desc">{fundraisingEvents[1].description[lang]}</p>
+                        <!-- Video in card — vertical (9:16) -->
+                        <div class="mfth-card-video-wrap">
+                            <!-- svelte-ignore a11y_media_has_caption -->
+                            <video
+                                class="mfth-card-video"
+                                src={mfthVideoSrc}
+                                controls
+                                preload="metadata"
+                                aria-label={copy[lang].mfthVideoLabel}
+                            ></video>
+                        </div>
+                        <!-- Donate button in card -->
+                        <a
+                            href={donateUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="mfth-card-donate-btn"
+                        >
+                            <i class="pi pi-heart-fill"></i>
+                            <span>{copy[lang].mfthCardDonate}</span>
+                        </a>
                     </div>
                 </div>
 
@@ -307,6 +345,40 @@
                     <h4>{copy[lang].timelineSummaryTitle}</h4>
                     <p class="normal">{copy[lang].timelineSummaryBody}</p>
                     <img src="/assets/scholarshipHeart.png" alt="Heartfelt scholarship heart" class="summary-heart" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── MFTH Campaign section ── -->
+    <section class="mfth-campaign reveal" style="--delay: 265ms">
+        <div class="mfth-campaign-inner">
+            <div class="mfth-campaign-text">
+                <p class="mfth-campaign-kicker normal">{copy[lang].fundraisingLabel}</p>
+                <h3>{copy[lang].mfthCampaignTitle}</h3>
+                <p class="normal">{copy[lang].mfthCampaignBody}</p>
+                <a
+                    href={donateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mfth-donate-btn"
+                >
+                    <i class="pi pi-heart-fill"></i>
+                    <span>{copy[lang].mfthDonateButton}</span>
+                </a>
+            </div>
+            <div class="mfth-campaign-video-wrap">
+                <p class="mfth-video-label normal">{copy[lang].mfthVideoLabel}</p>
+                <!-- Vertical (9:16) TikTok-style portrait frame -->
+                <div class="mfth-portrait-frame">
+                    <!-- svelte-ignore a11y_media_has_caption -->
+                    <video
+                        class="mfth-campaign-video"
+                        src={mfthVideoSrc}
+                        controls
+                        preload="metadata"
+                        aria-label={copy[lang].mfthVideoLabel}
+                    ></video>
                 </div>
             </div>
         </div>
@@ -364,6 +436,7 @@
     .hero,
     .details,
     .timeline-section,
+    .mfth-campaign,
     .social {
         max-width: 1120px;
         margin: 0 auto;
@@ -624,7 +697,6 @@
 
     .mfth-banner-img {
         width: 100%;
-        /* 1536×1024 = 3:2 aspect ratio */
         aspect-ratio: 3 / 2;
         object-fit: cover;
         display: block;
@@ -632,6 +704,9 @@
 
     .mfth-banner-caption {
         padding: 0.75rem 0.9rem 0.9rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
     }
 
     .mfth-event-label {
@@ -640,13 +715,13 @@
         text-transform: uppercase;
         letter-spacing: 0.08em;
         color: var(--color-secondary);
-        margin: 0 0 0.2rem;
+        margin: 0;
     }
 
     .mfth-event-name {
         font-size: 1rem;
         font-weight: 700;
-        margin: 0 0 0.3rem;
+        margin: 0;
         color: #111827;
     }
 
@@ -655,6 +730,117 @@
         color: var(--color-text-light);
         line-height: 1.55;
         margin: 0;
+    }
+
+    /* Portrait video wrapper — keeps 9:16 in the card, centered, max 180px wide */
+    .mfth-card-video-wrap {
+        margin-top: 0.6rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mfth-card-video {
+        width: 100%;
+        max-width: 180px;
+        aspect-ratio: 9 / 16;
+        border-radius: 10px;
+        background: #000;
+        object-fit: cover;
+        display: block;
+    }
+
+    .mfth-card-donate-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        margin-top: 0.5rem;
+        padding: 0.65rem 1rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        background: var(--color-primary);
+        color: #fff;
+        align-self: flex-start;
+    }
+
+    /* ── MFTH Campaign section ── */
+
+    .mfth-campaign {
+        padding-top: 0;
+    }
+
+    .mfth-campaign-inner {
+        display: grid;
+        /* Text gets more room; video column is narrow to suit portrait format */
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+        align-items: start;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(15, 23, 42, 0.12);
+    }
+
+    .mfth-campaign-kicker {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-secondary);
+        margin: 0 0 0.4rem;
+    }
+
+    .mfth-campaign-text h3 {
+        margin: 0 0 0.75rem;
+        font-size: 1.2rem;
+        color: #111827;
+    }
+
+    .mfth-campaign-text p.normal {
+        margin: 0;
+        line-height: 1.65;
+        color: var(--color-text-light);
+    }
+
+    .mfth-donate-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding: 0.8rem 1.25rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        background: var(--color-primary);
+        color: #fff;
+    }
+
+    .mfth-video-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-secondary);
+        margin: 0 0 0.5rem;
+    }
+
+    /* Portrait phone-style frame for the TikTok video */
+    .mfth-portrait-frame {
+        width: 220px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        background: #000;
+        aspect-ratio: 9 / 16;
+        position: relative;
+    }
+
+    .mfth-campaign-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     /* Follow card */
@@ -751,11 +937,24 @@
 
         .timeline-right {
             position: static;
-            /* Show banner before the follow card but after timeline on mobile */
         }
 
         .mfth-banner-img {
             aspect-ratio: 3 / 2;
+        }
+
+        .mfth-campaign-inner {
+            grid-template-columns: 1fr;
+        }
+
+        .mfth-campaign-video-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mfth-portrait-frame {
+            width: 180px;
         }
     }
 
@@ -763,6 +962,7 @@
         .hero,
         .details,
         .timeline-section,
+        .mfth-campaign,
         .social {
             padding: 1.5rem 1rem;
         }
