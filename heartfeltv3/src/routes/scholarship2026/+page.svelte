@@ -142,6 +142,7 @@
                 en: "Miles for the Heart's Journey event banner",
                 hu: "Miles for the Heart's Journey rendezvény banner",
             },
+            isCurrent: true
         },
     ];
 
@@ -156,7 +157,7 @@
                 en: "The final scholarship participant is being selected with the mentoring team.",
                 hu: "A végleges ösztöndíjas kiválasztása a mentori csapattal együttműködésben történik és már folyamatban van.",
             },
-            isCurrent: true,
+            // isCurrent: true,
         },
         {
             key: "prep",
@@ -280,7 +281,7 @@
                     <h3>{copy[lang].timelineTitle}</h3>
                     <p class="fundraising-label normal">{copy[lang].fundraisingLabel}</p>
                     {#each fundraisingEvents as item}
-                        <div class="timeline-item event-item">
+                        <div class="timeline-item event-item" class:current={item.isCurrent}>
                             <span class="dot event-dot" aria-hidden="true"></span>
                             <div>
                                 <h4>{item.title[lang]}</h4>
