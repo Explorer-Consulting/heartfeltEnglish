@@ -150,14 +150,14 @@
         {
             key: "selection",
             title: {
-                en: "Student selection in progress",
-                hu: "A diák kiválasztásának folyamata",
+                en: "Student selection finalised",
+                hu: "A diák kiválasztása véglegesítve",
             },
             description: {
-                en: "The final scholarship participant is being selected with the mentoring team.",
-                hu: "A végleges ösztöndíjas kiválasztása a mentori csapattal együttműködésben történik és már folyamatban van.",
+                en: "The final scholarship participant is selected with the mentoring team.",
+                hu: "A végleges ösztöndíjas kiválasztása a mentori csapattal együttműködésben történt.",
             },
-            // isCurrent: true,
+            isCurrent: true,
         },
         {
             key: "prep",
