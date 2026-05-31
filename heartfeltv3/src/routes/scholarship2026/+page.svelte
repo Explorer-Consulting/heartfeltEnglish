@@ -38,7 +38,7 @@
             hu: "Ösztöndíjban részt vevő (később kerül kiválasztásra)",
         },
         location: {
-            en: "18 years old · Hungary",
+            en: "18 years old",
             hu: "Magyarország",
         },
         bio: {
