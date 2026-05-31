@@ -30,26 +30,34 @@
 
     const participant = {
         name: {
-            en: "Student to be announced on: 31 May 2026",
+            en: "Mónika",
             hu: "Az ösztöndíjat elnyert diák bejelentésének időpontja: 2026. május 31.",
         },
         role: {
-            en: "Scholarship participant (TBD)",
+            en: "Scholarship Winner 2026",
             hu: "Ösztöndíjban részt vevő (később kerül kiválasztásra)",
         },
         location: {
-            en: "Hungary",
+            en: "18 years old · Hungary",
             hu: "Magyarország",
         },
         bio: {
-            en: "The final scholarship student has not been selected yet. This profile section will be updated once the participant is confirmed, including photo, short bio, and programme goals.",
+            en: "Mónika joined the Heartfelt English programme three years ago at beginner level and, through dedication, perseverance, and hard work, has progressed to a low-intermediate level. She enjoys reading novels, reciting poetry, listening to music, and playing the guitar.",
             hu: "A végleges ösztöndíjas kiválasztása még folyamatban van. Ez a profilrész frissítésre kerül, miután a résztvevő kiválasztása megerősítést nyer. Felkerül egy fénykép, rövid bemutatkozás és a programhoz kapcsolódó célok.",
         },
-        image: "/assets/scholarshipHeart.png",
+        quote: {
+            en: "I am really excited to go to the UK. I am thankful to the people who paid for my flight and course, and I am also grateful to the Heartfelt English Foundation. When I first heard that I would be going to the UK, I was very happy because I really want to take the Cambridge exam. In the future, I would like to become a teacher or a kindergarten teacher.",
+            hu: "A végleges ösztöndíjas kiválasztása még folyamatban van. Ez a profilrész frissítésre kerül, miután a résztvevő kiválasztása megerősítést nyer. Felkerül egy fénykép, rövid bemutatkozás és a programhoz kapcsolódó célok.",
+        },
+        goals: {
+            en: "Through the UK Scholarship Programme, Mónika will be able to put her English language skills into practice in a real-life environment, deepen her understanding of British culture, and further develop her language skills during her studies abroad.",
+            hu: "A végleges ösztöndíjas kiválasztása még folyamatban van. Ez a profilrész frissítésre kerül, miután a résztvevő kiválasztása megerősítést nyer. Felkerül egy fénykép, rövid bemutatkozás és a programhoz kapcsolódó célok.",
+        },
+        image: "/assets/monika2.png",
     };
 
     const programmeDates = {
-        en: "Summer 2026 (exact dates to be confirmed)",
+        en: "12–19 July 2026",
         hu: "2026 nyara (a pontos időintervallum később kerül meghatározásra)",
     };
 
@@ -64,7 +72,7 @@
             programmeBody:
                 "Heartfelt English is a Hungarian-registered charity founded by Ágota Székely and Orsolya Szűcs. Since 2021, our volunteers have provided free online English lessons for children in care homes, along with summer camps and scholarship opportunities in the UK.",
             programmeBody2:
-                "This scholarship programme ran in previous years and continues in 2026 as part of our mission to create equal opportunities through education, mentorship, and meaningful international experiences.",
+                "This year, Mónika has been selected as the scholarship recipient. She will travel to Concorde International in Canterbury for a 25-hour intensive English course, with the aim of strengthening her language skills and cultural understanding in a real-life setting.",
             dateLabel: "Programme dates",
             timelineTitle: "2026 Timeline",
             fundraisingLabel: "Fundraising events",
@@ -82,6 +90,8 @@
             mfthDonateButton: "Support Juan's run — Donate now",
             mfthVideoLabel: "Watch Juan's campaign video",
             mfthCardDonate: "Donate",
+            consentNotice:
+                "Photographs and related programme materials are published with the consent of the student and, where applicable, the student’s legal guardian, for use on HeartfeltEnglish.org and Heartfelt English’s official digital channels.",
         },
         hu: {
             title: "Ösztöndíjprogram 2026",
@@ -110,6 +120,8 @@
             mfthDonateButton: "Támogasd Juan futását — Adományozz most",
             mfthVideoLabel: "Nézd meg Juan kampányvideóját",
             mfthCardDonate: "Adományozz",
+            consentNotice:
+                "A fényképek és a kapcsolódó programanyagok közzététele a diák, illetve szükség esetén a diák törvényes képviselőjének hozzájárulásával történik a HeartfeltEnglish.org oldalon és a Heartfelt English hivatalos digitális felületein.",
         },
     } satisfies Record<Language, Record<string, string>>;
 
@@ -150,11 +162,11 @@
         {
             key: "selection",
             title: {
-                en: "Student selection finalised",
+                en: "Student announcement",
                 hu: "A diák kiválasztása véglegesítve",
             },
             description: {
-                en: "The final scholarship participant is selected with the mentoring team.",
+                en: "Mónika is announced as the 2026 scholarship winner.",
                 hu: "A végleges ösztöndíjas kiválasztása a mentori csapattal együttműködésben történt.",
             },
             isCurrent: true,
@@ -166,7 +178,7 @@
                 hu: "Felkészülési időszak",
             },
             description: {
-                en: "Orientation is offered by the Heartfelt Team and former scholarship winners (Iulia - 2024 and Viola - 2025). Travel logistics are prepared.",
+                en: "Orientation is offered by the Heartfelt Team and former scholarship winners (Iulia - 2024 and Viola - 2025). Travel logistics are prepared for Mónika’s trip to the UK.",
                 hu: "A Heartfelt csapata tájékoztató és felkészítő alkalmakat biztosít, valamint korábbi ösztöndíjasok (Iulia – 2024 és Viola – 2025) beszámolóit. Az utazással kapcsolatos szervezési feladatok is ekkor történnek.",
             },
         },
@@ -177,7 +189,7 @@
                 hu: "Program az Egyesült Királyságban",
             },
             description: {
-                en: "The selected student attends an intensive English language programme (25 hours/week) at Concorde International in Canterbury, UK.",
+                en: "Mónika attends a 25-hour intensive English course at Concorde International in Canterbury, UK.",
                 hu: "A kiválasztott hallgató egy intenzív angol nyelvi képzésen vesz részt (heti 25 órában) a Concorde International intézményében, Canterburyben, az Egyesült Királyságban.",
             },
         },
@@ -188,7 +200,7 @@
                 hu: "Hazatérés és eredmények",
             },
             description: {
-                en: "We share reflections, photos, and learning outcomes from the journey.",
+                en: "We share reflections, photos, and learning outcomes from Mónika’s journey.",
                 hu: "A program lezárását követően megosztjuk az út során szerzett élményeket, fényképeket és a tanulási eredményeket.",
             },
         },
@@ -254,6 +266,10 @@
                     <h2>{participant.name[lang]}</h2>
                     <p class="student-role normal">{participant.role[lang]} · {participant.location[lang]}</p>
                     <p class="normal">{participant.bio[lang]}</p>
+                    {#if lang === "en"}
+                        <p class="student-quote">“{participant.quote.en}”</p>
+                        <p class="student-goals normal">{participant.goals.en}</p>
+                    {/if}
                 </div>
             </div>
         </div>
@@ -422,6 +438,10 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
+
+    <footer class="consent-note reveal" style="--delay: 320ms">
+        <p>{copy[lang].consentNotice}</p>
+    </footer>
 </div>
 
 <style>
@@ -526,18 +546,27 @@
 
     .student-focus {
         display: grid;
-        grid-template-columns: 140px minmax(0, 1fr);
-        gap: 1.1rem;
-        align-items: start;
+        grid-template-columns: minmax(240px, 0.9fr) minmax(0, 1.1fr);
+        gap: 1.35rem;
+        align-items: stretch;
     }
 
     .student-image {
-        width: 136px;
-        height: 136px;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
         border-radius: 1rem;
         object-fit: contain;
+        object-position: center;
+        background: rgba(255, 255, 255, 0.72);
         border: 3px solid #fff;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .student-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .student-kicker {
@@ -565,6 +594,19 @@
         margin: 0;
         color: var(--color-text-light);
         line-height: 1.65;
+    }
+
+    .student-quote {
+        margin: 0.8rem 0 0.45rem;
+        padding-left: 0.85rem;
+        border-left: 3px solid rgba(15, 23, 42, 0.16);
+        color: #111827;
+        line-height: 1.7;
+        font-size: 0.98rem;
+    }
+
+    .student-goals {
+        margin-top: 0.55rem;
     }
 
     .details-grid {
@@ -924,6 +966,20 @@
         background: #fff;
     }
 
+    .consent-note {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 1.25rem 3rem;
+    }
+
+    .consent-note p {
+        margin: 0;
+        font-size: 0.72rem;
+        line-height: 1.5;
+        color: rgba(17, 24, 39, 0.72);
+        letter-spacing: 0.01em;
+    }
+
     /* ── Responsive ── */
 
     @media (max-width: 980px) {
@@ -982,12 +1038,17 @@
         }
 
         .student-image {
-            width: 112px;
-            height: 112px;
+            width: 100%;
+            height: auto;
+            min-height: 0;
         }
 
         .feed {
             min-height: 500px;
+        }
+
+        .consent-note {
+            padding: 0 1rem 2.5rem;
         }
     }
 
